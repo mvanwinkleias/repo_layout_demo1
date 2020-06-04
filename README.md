@@ -80,10 +80,10 @@ Here's how we're going to organize things during this tutorial:
 
 # Design Goals
 
-All of these languages are unrelated, but they use the same layout.
+All of these languages are unrelated, but the programs use the same layout.
 
 You start from the perspective of accomodating for future growth by organizing
-things.  Then you use the design as a template so that "quick and dirty"
+things.  Then you use the design as a template (such as this) so that "quick and dirty"
 is just "quick".
 
 A problem with ALL programming languages is that you don't know how a library
