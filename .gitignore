@@ -1,0 +1,24 @@
+# package shell specific things
+build
+drop/*
+
+# transient files
+src/input/*
+src/output/*
+src/log/*
+
+# python
+__pycache__/
+*.pyc
+
+# dia
+*.dia.autosave
+
+# java
+src/java/**/*.class
+
+# perl6
+src/**/.precomp
+
+# editors
+*.swp
