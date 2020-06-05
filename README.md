@@ -98,7 +98,7 @@ appropriate file names, you can easily see what's been going on without
 reading the commit messages.  That, and given the nature of git, if you make
 a mistake with a commit message (i.e. include a file that's unrelated to the
 commit message in the commit) how often do you fix that?  You just needed a
-checkpoint to not lose your work. [^commit_messages]
+checkpoint to not lose your work. <sup>[commit_messages](#commit_messages)</sup>
 
 
 # The Actual Tutorial
@@ -308,5 +308,5 @@ documentation, etc).
 
 # Footnotes
 
-[^commit_messages]: There are articles out there for how to write commit messages.
+<a name="commit_messages">Commit Messages</a>: There are articles out there for how to write commit messages.
 	Here is one example: https://chris.beams.io/posts/git-commit/
