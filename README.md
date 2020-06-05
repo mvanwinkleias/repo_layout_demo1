@@ -138,6 +138,7 @@ Here's what you could do, by hand:
 cp /some/template/.gitignore .gitignore
 touch README.md
 mkdir -p src/bin
+cd src/bin
 touch some_script.py
 ```
 
