@@ -69,6 +69,8 @@ I have repos for:
 * smtp scripts
 * syslog (combined) log parsing
 
+... and more.
+
 You can group things together.  Just make sure that if they become a "thing" that they
 then get organized.
 
