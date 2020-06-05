@@ -1,30 +1,45 @@
 # Purpose
 
+* To get your code in a repo that's well organized
 * To change "quick and dirty" to "quick and something that can be built upon"
-
-# Forward
-
-I don't consider this type of discipline only worth while for Developers.
-My profession is System Administration, with emphasis on "other things".
-While the ideas presented here might seem complex, they are presented in a
-"do this" manner, and I understand there might be questions.
-
-In my opinion, "I'm not a Developer" is not a good argument for not following
-good programming practice; especially when people are literally showing
-you how to make your life easier.
+* To shed light on "what's not bad" and "what's not good"
 
 If you program, and think to yourself, "I'll never need to put this in a
 source repo", this is for you.
+
+# Forward
+
+My profession is System Administration, with emphasis on "other things".
+
+In my opinion, "I'm not a Developer" is not a good argument for not following
+good programming practice; especially when 
+
+* people are clearly showing you how to make your life easier.
+* It only costs you 4 minutes.  You have 4 minutes.
+
+For the short term the answers to most questions are mostly going to be:
+
+* This is A way of doing it.
+* Doing it this way now is cheap and easy.
+* This avoids problems
+* This allows for growth
 
 These techniques are revision control system agnostic.  That said,
 the majority of my work is in git.
 
 ## Repo Naming, Groups, etc
 
-### One-Offs
+You're going to have a lot of repos.  Don't fear that.  Naming and organization
+are important.  But, you can always change names, and reorganize.  That's
+relatively easy.
 
-You're going to have a lot of repos.  Don't fear that.  Sometimes the best names to give
-a repo look like:
+### "One-Off" repos
+
+You're programming something, and you don't know if it's going to be important.
+It's unrelated to other things.  You don't know if it's going to be useful.
+(Any code that you've saved that you can look at later is useful...)
+
+Sometimes the best names to give a repo look like:
 
 * ias_102003_hunt_mac_addresses
 
@@ -74,15 +89,17 @@ a mistake with a commit message (i.e. include a file that's unrelated to the
 commit message in the commit) how often do you fix that?  You just needed a
 checkpoint to not lose your work.
 
-# "Start" Repo Layout
+# The Actual Tutorial
+
+I know, I included a lot of information above.  This tells you what to do.
+
+## "Start" Repo Layout
 
 A ticket came in.  You need to write a script that looks for the mac address
 in a DHCP log file, and pull out the IP addresses that the mac address has
 been assigned.
 
-You create the repo in your group space.
-
-You name it something like:
+You create the repo in your group space.  You name it something like:
 
 * edu_19282_hunt_mac_addresses
 
@@ -90,11 +107,13 @@ Or, you put it in your personal space:
 
 * mv_19282_hunt_mac_addresses
 
-Clone the repo.
+Clone the repo. cd into it.
 
-This should only cost you 2 minutes.
+This should only cost you 2 minutes.  You have 2 minutes.
 
-## You have a script you need to write!
+## You Have a Script You Need to Write
+
+Create a project layout like this:
 
 ```
 .
@@ -120,7 +139,9 @@ mkdir -p src/bin
 touch some_script.py
 ```
 
-And you're off!  This should only cost you 2 minutes.
+And you're off!  This should only cost you 2 minutes.  You have 2 minutes.
+
+Code, commit, push, etc.
 
 ## You Can Stop Here?!
 
@@ -128,8 +149,8 @@ Yes.  Getting code into a revision control system is a big step.
 Provided you're committing and pushing your code, you can share
 and get help!
 
-Also, I'll stress:  Don't let people complaining about how you
-do revision control impact committing.  It's not nearly as bad
+Also, I'll stress:  Don't let people discourage you from committing
+when you don't have a good commit message offhand.  It's not nearly as bad
 as choosing between food and medication, but when in doubt:
 
 ```
@@ -139,7 +160,8 @@ git push
 ```
 That takes less than 20 seconds.  I honestly don't care that the
 commit message was short and non-descript.  I can read what changed
-in the file.
+in the file.  I always end up reading the source anyway because
+commit messages can be wrong.
 
 Important changes however, do justify using more formal commit
 messages.
@@ -165,12 +187,32 @@ doing before.
 
 ## You're seeing patterns!
 
-Maybe now you're 
+Maybe now you're thinking, "I can abstract some_script.py functionality
+to a library!"  Maybe somebody else with access to the repo sees that as
+well.
 
-# "Goal" Repo Layout
+RANT: But, separating the code into a separate library is going to involve
+another repo, another project template, setting dependencies in this one,
+deployments, more complexity than what is justified for just a simple thing,
+and on and on, and on.  I guess we'll NEVER start using libraries!
 
+Is it really that way?  No.  Some programming languages are more difficult
+than others to do what is described here.
 
-Here's how we're going to organize things during this tutorial:
+In this source repo, for whatever script you want to examine in src/bin ,
+there are examples for how to include a library file relative to the
+current path of the script, and how to include libraries from a place
+where they might be installed.
+
+Have a look.
+
+# Discussion
+
+This is where I have a discussion with people I'm in a conference with.
+
+## A "Mature" Repo Layout
+
+Here's a tree view of this repository.
 
 ```
 .
@@ -199,9 +241,9 @@ Here's how we're going to organize things during this tutorial:
                 └── HelloRepoLayout.rb
 ```
 
-# Design Goals
-
 All of these languages are unrelated, but they use the same layout.
+
+# Design Goals (In General)
 
 You start from the perspective of accomodating for future growth by organizing
 things.  Then you use the design as a template so that "quick and dirty"
