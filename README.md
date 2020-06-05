@@ -187,7 +187,7 @@ a layout.  Use it.
         └── some_script.py
 ```
 
-## You're seeing patterns!
+## You're Seeing Patterns!
 
 Maybe now you're thinking, "I can abstract some_script.py functionality
 to a library!"  Maybe somebody else with access to the repo sees that as
