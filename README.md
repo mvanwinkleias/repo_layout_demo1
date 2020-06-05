@@ -30,7 +30,7 @@ the majority of my work is in git.
 ## Repo Naming, Groups, etc
 
 You're going to have a lot of repos.  Don't fear that.  Naming and organization
-are important.  But, you can always change names, and reorganize.  That's
+are important.  But, you can always change names, and move repos around.  That's
 relatively easy.
 
 ### "One-Off" repos
