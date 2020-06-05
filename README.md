@@ -9,13 +9,20 @@ source repo", this is for you.
 
 # Forward
 
+This forward is long, and contains a lot of rationale.  If you want to dive
+right in, see the section titled, "The Actual Tutorial".
+
 My profession is System Administration, with emphasis on "other things".
 
 In my opinion, "I'm not a Developer" is not a good argument for not following
 good programming practice; especially when 
 
-* people are clearly showing you how to make your life easier.
-* It only costs you 4 minutes.  You have 4 minutes.
+* People are clearly showing you how to make your life easier.
+* Putting your code in a repo ends up costing about 4 minutes.
+	* Create the repo (Name box and push button on github / gitlab, etc)
+	* Clone it (github / gitlab give you the path to clone)
+	* Make the directory structure (Provided below)
+
 
 For the short term the answers to most questions are mostly going to be:
 
@@ -79,6 +86,8 @@ then get organized.
 If you are capable of being modular, then go for it.  That's one of the things
 this tutorial is all about.
 
+#### Commit Messages
+
 If you are in a modular environment, with an actual release process,
 commit messages become less important than changelogs.
 
@@ -89,7 +98,8 @@ appropriate file names, you can easily see what's been going on without
 reading the commit messages.  That, and given the nature of git, if you make
 a mistake with a commit message (i.e. include a file that's unrelated to the
 commit message in the commit) how often do you fix that?  You just needed a
-checkpoint to not lose your work.
+checkpoint to not lose your work. [^commit_messages]
+
 
 # The Actual Tutorial
 
@@ -296,4 +306,7 @@ Where
 * 4 is the release number, when things outside of src have changed. (Deployment,
 documentation, etc).
 
+# Footnotes
 
+[^commit_messages]: There are articles out there for how to write commit messages.
+	Here is one example: https://chris.beams.io/posts/git-commit/
