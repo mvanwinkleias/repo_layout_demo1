@@ -168,7 +168,7 @@ commit messages can be wrong.
 Important changes however, do justify using more formal commit
 messages.
 
-## You Want to Add a Bash Script
+## Let's Say You Want to Add a Bash Script
 
 Your script works.  But, you want to make it easy to run by creating
 a Bash wrapper for it.
