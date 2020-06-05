@@ -131,7 +131,7 @@ program I've been working on for some time.  The examples in this tutorial are
 complete concepts that contribute to the system I use.)
 
 A good .gitignore is very important.  Chances are you can make a large one that covers a bunch of
-languages, and use liberally.
+languages, and use in multiple repos.
 
 Here's what you could do, by hand:
 ```
