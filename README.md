@@ -174,8 +174,8 @@ Your script works.  But, you want to make it easy to run by creating
 a Bash wrapper for it.
 
 Put it in src/bin.  You've already created the layout.  That's where
-stuff you run should go.  This costed you nothing above what you were
-doing before.
+stuff you run should go.  This costs you nothing.  You already created
+a layout.  Use it.
 
 ```
 .
@@ -199,7 +199,12 @@ deployments, more complexity than what is justified for just a simple thing,
 and on and on, and on.  I guess we'll NEVER start using libraries!
 
 Is it really that way?  No.  Some programming languages are more difficult
-than others to do what is described here.
+than others.  But, I've taken the time to show how it can be done with:
+
+* Perl
+* Ruby
+* PHP
+* Python
 
 In this source repo, for whatever script you want to examine in src/bin ,
 there are examples for how to include a library file relative to the
