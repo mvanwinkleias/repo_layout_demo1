@@ -189,6 +189,8 @@ a layout.  Use it.
 
 ## You're Seeing Patterns!
 
+Let's say you've been coding for this issue for a bit.
+
 Maybe now you're thinking, "I can abstract some_script.py functionality
 to a library!"  Maybe somebody else with access to the repo sees that as
 well.
