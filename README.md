@@ -10,7 +10,9 @@ source repo", this is for you.
 # Forward
 
 This forward is long, and contains a lot of rationale.  If you want to dive
-right in, see the section titled, "The Actual Tutorial".
+right in, see [The Actual Tutorial](#the-actual-tutorial).
+
+https://github.com/mvanwinkleias/repo_layout_demo1#the-actual-tutorial
 
 My profession is System Administration, with emphasis on "other things".
 
@@ -40,9 +42,10 @@ You're going to have a lot of repos.  Don't fear that.  Naming and organization
 are important.  But, you can always change names, and move repos around.  That's
 relatively easy.
 
-### "One-Off" repos
+### "One-Off" Repos
 
-You're programming something, and you don't know if it's going to be important.
+#### "Unimportant Stuff"
+Let's say you're programming something, and you don't know if it's going to be important.
 It's unrelated to other things.  You don't know if it's going to be useful.
 (Any code that you've saved that you can look at later is useful...)
 
@@ -51,7 +54,8 @@ Sometimes the best names to give a repo look like:
 * ias_102003_hunt_mac_addresses
 
 Where 102003 corresponds to a ticket number that can be referenced, and updated
-by anybody with access to the ticketing system.
+by anybody with access to the ticketing system.  If anybody wants to "clean up"
+the repo, they can refer back to the ticket.
 
 Sometimes you'll make a repo just for yourself in your private space.  My name is Martin VanWinkle .
 
@@ -61,6 +65,10 @@ I'll name repos like this:
 
 and put it in my private git space.  If I want to share it with a teammate, and they clone the repo
 into their source directory, it's more obvious what that repo does and it manages expectations.
+
+There is typically less formality and accountability with personal repos.
+
+#### "Important" Stuff
 
 You will want to have a space for "production" repos.
 
@@ -226,7 +234,7 @@ where they might be installed.
 
 Have a look.
 
-# Discussion
+# Afterword / Discussion
 
 This is where I have a discussion with people I'm in a conference with.
 
@@ -263,7 +271,7 @@ Here's a tree view of this repository.
 
 All of these languages are unrelated, but they use the same layout.
 
-# Design Goals (In General)
+## Design Goals (In General)
 
 You start from the perspective of accomodating for future growth by organizing
 things.  Then you use the design as a template so that "quick and dirty"
@@ -278,14 +286,14 @@ This is future-proof.  When you've finally gotten a good idea of how things
 could be organized, you can pick off functionality and put them into more
 "official" libraries.  You lose nothing.  You gain mobility.
 
-# Features
+## Features
 
 All scripts can be symbolically linked to wherever.  They're capable of finding
 the libraries they use.
 
-# Rules / Guidelines
+## Rules / Guidelines
 
-## Avoiding Conflicts and Breakage
+### Avoiding Conflicts and Breakage
 
 If you use globally unique library names you don't have to worry about conflicts.
 
@@ -295,7 +303,7 @@ simply copy the library and name it HelloRepoLayout2 (for example) .  It is alwa
 retroactively examine what other source files are using the old version and
 see if you can easily get them to use the new version.
 
-## Semantic Versioning and Tags
+### Semantic Versioning and Tags
 If you use Semantic Versioning, then, for example, you can use a tagging scheme like this:
 
 * 1.2.3-4
