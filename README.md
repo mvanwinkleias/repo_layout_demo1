@@ -234,6 +234,15 @@ where they might be installed.
 
 Have a look.
 
+You can refactor your code to refer to a library in ../lib .  Once you have
+a better idea of how things could be organized, you can migrate to using
+the whatever the standard for the language happens to be:
+
+* Python: https://packaging.python.org/tutorials/packaging-projects/
+* Perl: perldoc newmod
+* PHP: (TBD)
+* Ruby: https://guides.rubygems.org/make-your-own-gem
+
 # Afterword / Discussion
 
 This is where I have a discussion with people I'm in a conference with.
