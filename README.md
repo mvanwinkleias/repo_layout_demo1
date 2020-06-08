@@ -187,24 +187,6 @@ commit messages can be wrong.
 Important changes however, do justify using more formal commit
 messages.
 
-## Let's Say You Want to Add a Bash Script
-
-Your script works.  But, you want to make it easy to run by creating
-a Bash wrapper for it.
-
-Put it in src/bin.  You've already created the layout.  That's where
-stuff you run should go.  This costs you nothing.  You already created
-a layout.  Use it.
-
-```
-.
-├── .gitignore
-├── README.md
-└── src
-    └── bin
-        ├── run_me.sh
-        └── some_script.py
-```
 
 ## You're Seeing Patterns!
 
@@ -234,9 +216,15 @@ where they might be installed.
 
 Have a look.
 
-You can refactor your code to refer to a library in ../lib .  Once you have
-a better idea of how things could be organized, you can migrate to using
-the whatever the standard for the language happens to be:
+You can refactor your code to refer to a library in ../lib .
+
+## The "Next Big Leap"
+
+This all hinged on getting your code in a repo.
+
+Once you have a better idea of how things could be organized, you can migrate to using
+the whatever the standard for the language happens to be, and then publish them.
+
 
 * Python: https://packaging.python.org/tutorials/packaging-projects/
 * Perl: perldoc newmod
@@ -327,3 +315,28 @@ documentation, etc).
 
 <a name="commit_messages">Commit Messages</a>: There are articles out there for how to write commit messages.
 	Here is one example: https://chris.beams.io/posts/git-commit/
+
+
+# Scratch
+
+Stuff I would have liked to include, but couldn't work out the flow just right:
+
+
+## Let's Say You Want to Add a Bash Script
+
+Your script works.  But, you want to make it easy to run by creating
+a Bash wrapper for it.
+
+Put it in src/bin.  You've already created the layout.  That's where
+stuff you run should go.  This costs you nothing.  You already created
+a layout.  Use it.
+
+```
+.
+├── .gitignore
+├── README.md
+└── src
+    └── bin
+        ├── run_me.sh
+        └── some_script.py
+```
