@@ -25,6 +25,16 @@ link it to ~/.config/IAS/some-awesome-project/ipam_credentials.json .
 This will allow you to use the same set of credentials for multiple projects that access
 the same set of systems.
 
+For example, I coudl have ~/.config/IAS/my_credentials/
+* my_ipam_credentials.json
+* service_user_ipam_credentials.json
+* my_nagios_credentials.json
+* my_cisco_prime_credentials.json
+* admin_cisco_prime_credentials.json
+
+and symbolically link them to where the scripts expect them
+
+
 You can store non-sensitive information in your home directory as well.  I recommend storing
 credentials in different (separate) files though.
 
