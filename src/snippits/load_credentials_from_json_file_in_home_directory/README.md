@@ -25,7 +25,7 @@ link it to ~/.config/IAS/some-awesome-project/ipam_credentials.json .
 This will allow you to use the same set of credentials for multiple projects that access
 the same set of systems.
 
-For example, I coudl have ~/.config/IAS/my_credentials/
+For example, I could have ~/.config/IAS/my_credentials/
 * my_ipam_credentials.json
 * service_user_ipam_credentials.json
 * my_nagios_credentials.json
