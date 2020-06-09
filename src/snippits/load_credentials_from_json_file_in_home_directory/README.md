@@ -37,6 +37,6 @@ Then, when somebody wants to use your project for something, you can write instr
 * Symlink src/etc/config.json to ~/.config/IAS/some-awesome-project/config.json
 * Put your IPAM credentials "username", and "password" into ~/.config/IAS/some-awesome-project/ipam_credentials.json
 
-# Lastpass!
+# Lastpass
 
-For bonus points, you can use the lastpass command line utility to dump json files.
+For bonus points, you can use the Lastpass command line utility to dump json files.
