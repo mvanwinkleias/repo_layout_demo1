@@ -39,4 +39,5 @@ Then, when somebody wants to use your project for something, you can write instr
 
 # Lastpass
 
-For bonus points, you can use the Lastpass command line utility to dump json files.
+For bonus points, you can use the Lastpass command line utility to dump json files.  The "notes" field
+can also contain a JSON doc.
