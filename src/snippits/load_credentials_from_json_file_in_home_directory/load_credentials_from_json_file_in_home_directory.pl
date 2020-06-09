@@ -22,6 +22,9 @@ GetOptions(
 or die "Bad options.\n";
 
 print Dumper(load_json_file($OPTIONS_VALUES->{'ipam-credentials-file'}));
+
+exit;
+
 sub load_json_file
 {
 	my ($filename) = @_;
