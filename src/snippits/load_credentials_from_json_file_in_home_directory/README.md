@@ -26,7 +26,7 @@ This will allow you to use the same set of credentials for multiple projects tha
 the same set of systems.
 
 You can store non-sensitive information in your home directory as well.  I recommend storing
-credentials in different files though.
+credentials in different (separate) files though.
 
 For non-sensitive configuration files, you can store them inside the repo, like in src/etc
 and symbolically link them to ~/.config/IAS/some-awesome-project/config.json
@@ -37,4 +37,6 @@ Then, when somebody wants to use your project for something, you can write instr
 * Symlink src/etc/config.json to ~/.config/IAS/some-awesome-project/config.json
 * Put your IPAM credentials "username", and "password" into ~/.config/IAS/some-awesome-project/ipam_credentials.json
 
+# Lastpass!
 
+For bonus points, you can use the lastpass command line utility to dump json files.
