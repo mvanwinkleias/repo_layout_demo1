@@ -164,6 +164,10 @@ And you're off!  This should only cost you 2 minutes.  You have 2 minutes.
 
 Code, commit, push, etc.
 
+### Yes, this works with...
+
+* pipenv (see src/snippets/python_pipenv)
+
 ## You Can Stop Here?!
 
 Yes.  Getting code into a revision control system is a big step.
