@@ -16,11 +16,14 @@ This says you should do it:
 
 * https://github.com/pypa/pipenv/issues/598
 
-
-For more information, see:
-
-* https://docs.python-guide.org/dev/virtualenvs/
-
 ## Running a Script that's been symbolically linked
 
 **run_pipenv.sh** in this directory shows how it can be done.
+
+# More Information
+
+For more information, see:
+
+* https://pypi.org/project/pipenv/
+* https://docs.python-guide.org/dev/virtualenvs/
+
