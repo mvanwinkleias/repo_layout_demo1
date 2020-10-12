@@ -8,7 +8,7 @@ end
 $:.unshift('/opt/IAS/lib/ruby2')
 $:.unshift(File.expand_path('../lib/ruby2/',File.dirname(realbin)))
 
-require 'IAS/HelloRepoLayout'
+require 'ias/hello_repo_layout'
 
 app = IAS::HelloRepoLayout.new
 
