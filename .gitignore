@@ -1,24 +1,52 @@
-# package shell specific things
-build
-drop/*
+# Package Shell Specific Things
 
-# transient files
-src/input/*
-src/output/*
-src/log/*
+## Build Process
 
-# python
+/build
+
+## Transient files
+
+/src/input
+/src/output
+/src/log
+/drop
+
+# Programming Languages
+
+## Java
+/src/java/**/*.class
+
+## Rakudo / Perl6
+/src/**/.precomp
+
+## PHP
+/vendor/
+
+## Python
+*.swp
 __pycache__/
 *.pyc
+*.egg-info
+/dist
 
-# dia
+## Ruby
+*.gem
+
+# Editors
+
+## Dia
 *.dia.autosave
 
-# java
-src/java/**/*.class
+## Emacs
+\#*\#
+.\#*
 
-# perl6
-src/**/.precomp
 
-# editors
+## Vi / Vim
 *.swp
+
+# Filesystem Artifacts
+
+## NFS
+
+.nfs*
