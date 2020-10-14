@@ -14,7 +14,7 @@ sys.path.insert(0,
     )
 )
 
-from IAS.HelloRepoLayout import IASHelloRepoLayout
+from ias.hello_repo_layout import IASHelloRepoLayout
 
 app = IASHelloRepoLayout()
 app.hello()
