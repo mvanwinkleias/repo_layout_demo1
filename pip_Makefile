@@ -1,0 +1,23 @@
+.PHONY: pip
+
+pip:
+	python3 setup.py sdist bdist_wheel
+
+.PHONY: pip_prep
+pip_prep:
+	python3 -m pip install --user --upgrade setuptools wheel testresources
+
+.PHONY: pip_install
+
+pip_install:
+	python3 -m pip install .
+
+.PHONY: pip_examine
+
+pip_examine:
+	tar -tzf dist/*.tar.gz
+
+.PHONY: pip_clean
+pip_clean:
+	rm -r build dist src/lib/python3/*.egg-info
+
