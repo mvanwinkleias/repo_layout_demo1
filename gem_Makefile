@@ -35,8 +35,8 @@ bundle_exec_rspec:
 
 .PHONY: gem_test_all
 gem_test_all:
-	make -f $(GEM_MAKEFILE) bundle_init
-	make -f $(GEM_MAKEFILE) bundle_install
+	# make -f $(GEM_MAKEFILE) bundle_init
+	# make -f $(GEM_MAKEFILE) bundle_install
 	make -f $(GEM_MAKEFILE) bundle_exec_rspec
 	make -f $(GEM_MAKEFILE) gem
 	make -f $(GEM_MAKEFILE) dump

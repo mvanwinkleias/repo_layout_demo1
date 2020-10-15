@@ -26,7 +26,7 @@ pip_clean:
 
 .PHONY: pip_test_all
 pip_test_all:
-	make -f $(PIP_MAKEFILE) pip_prep
+	# make -f $(PIP_MAKEFILE) pip_prep
 	make -f $(PIP_MAKEFILE) pip
 	make -f $(PIP_MAKEFILE) pip_examine
 	make -f $(PIP_MAKEFILE) pip_clean
