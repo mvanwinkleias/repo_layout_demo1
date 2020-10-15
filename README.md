@@ -42,6 +42,43 @@ You're going to have a lot of repos.  Don't fear that.  Naming and organization
 are important.  But, you can always change names, and move repos around.  That's
 relatively easy.
 
+### Standards Conformance
+
+Many programming languages have an active standards development community, and many things can and do change.
+Many programming languages require you to read multiple (and lengthy) documents in order to conform to standards.
+
+Most times the most recent standards for packaging for a programming language do not exist in the form of examples,
+they exist in the form of reference material.
+
+#### Ruby
+
+* https://guides.rubygems.org/patterns/
+* https://guides.rubygems.org/make-your-own-gem/
+
+
+#### Python
+
+* https://packaging.python.org/tutorials/packaging-projects/
+* https://www.python.org/dev/peps/pep-0008/
+* https://www.python.org/dev/peps/pep-0420/
+
+#### Rant
+
+This repository uses a directory structure "deeper" than what is typically used by most programming languages.
+However, it is known to work with generating things like Gems and Pips.
+
+This turns into a huge deal when interacting with members of a specific programming language community.
+Many times a programming language is touted as being "easier", but is often belied by:
+* how much reading and learning one must actually do in order to write code according to standards
+* how fast standards are changing.  Usually it goes: Proposal -> Acceptance -> Reference Material -> Examples .  The lack of current examples is bothersome.
+
+Many people also equate "different" with "non-conformant to standards".
+This attitude is a hindrance to innovation.
+
+With the examples provided, you should be able to mold them to whatever you want to do.
+If you don't like <strong>src/lib/ruby2</strong> and you just want to use <strong>lib/</strong>
+you can do it.  The layout I've chosen seems to work well with everything at the same time.
+
 ### "One-Off" Repos
 
 #### "Unimportant Stuff"
@@ -229,6 +266,16 @@ This all hinged on getting your code in a repo.
 Once you have a better idea of how things could be organized, you can migrate to using
 the whatever the standard for the language happens to be, and then publish them.
 
+This repository now contains examples for building:
+
+* Python Pip stuff
+* Ruby Gem stuff
+
+Check the makefiles.
+
+For Perl, check out module-starter.
+
+PHP still needs a bit of work.
 
 * Python: https://packaging.python.org/tutorials/packaging-projects/
 * Perl: perldoc newmod
@@ -261,13 +308,14 @@ Here's a tree view of this repository.
         │   └── IAS
         │       └── HelloRepoLayout.php
         ├── python3
-        │   └── IAS
-        │       └── HelloRepoLayout
-        │           ├── HelloRepoLayout.py
+        │   └── ias
+        │       └── hello_repo_layout
+        │           ├── hello_repo_layout.py
         │           └── __init__.py
         └── ruby2
-            └── IAS
-                └── HelloRepoLayout.rb
+            └── ias
+                └── hello_repo_layout.rb
+
 ```
 
 All of these languages are unrelated, but they use the same layout.
