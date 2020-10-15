@@ -1,4 +1,5 @@
 GEM_MAKEFILE_PATH = $(strip $(dir $(firstword $(MAKEFILE_LIST))))
+GEM_MAKEFILE = $(firstword $(MAKEFILE_LIST))
 
 
 .PHONY: gem
@@ -30,3 +31,12 @@ bundle_install:
 
 .PHONY: bundle_exec_rspec
 	bundle exec rspec
+
+.PHONY: gem_test_all
+gem_test_all:
+	make -f $(GEM_MAKEFILE) bundle_init
+	make -f $(GEM_MAKEFILE) bundle_install
+	make -f $(GEM_MAKEFILE) bundle_exec_rspec
+	make -f $(GEM_MAKEFILE) gem
+	make -f $(GEM_MAKEFILE) dump
+	make -f $(GEM_MAKEFILE) clean

@@ -1,0 +1,7 @@
+TEST_MAKEFILE_PATH = $(strip $(dir $(firstword $(MAKEFILE_LIST))))
+GEM_MAKEFILE = $(TEST_MAKEFILE_PATH)/gem_Makefile
+
+.PHONY: test_gem_all
+test_gem_all:
+	make -f $(GEM_MAKEFILE) gem_test_all
+
