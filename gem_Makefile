@@ -1,3 +1,6 @@
+GEM_MAKEFILE_PATH = $(strip $(dir $(firstword $(MAKEFILE_LIST))))
+
+
 .PHONY: gem
 
 gem:
@@ -11,3 +14,13 @@ clean:
 dump:
 	tar --to-stdout -xf *.gem data.tar.gz | tar -zt
 
+
+# Bundler stuff
+
+.PHONY: bundle_install
+bundle_install:
+	# echo "Gem makefile path: " $(GEM_MAKEFILE_PATH)
+	bundle install --path "$(GEM_MAKEFILE_PATH)/.bundle"
+
+.PHONY: bundle_exec_rspec
+	bundle exec rspec
