@@ -55,6 +55,7 @@ they exist in the form of reference material.
 * https://guides.rubygems.org/make-your-own-gem/
 * https://guides.rubygems.org/patterns/
 * https://packaging.rubystyle.guide/
+* https://guides.rubygems.org/name-your-gem/
 
 
 #### Python
