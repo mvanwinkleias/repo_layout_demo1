@@ -4,7 +4,7 @@ GEM_MAKEFILE_PATH = $(strip $(dir $(firstword $(MAKEFILE_LIST))))
 .PHONY: gem
 
 gem:
-	find ./ -name '*.gemspec' | xargs -n1 gem build
+	find ./ -maxdepth 1 '*.gemspec' | xargs -n1 gem build
 
 .PHONY: clean
 clean:
