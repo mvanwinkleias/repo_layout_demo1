@@ -30,6 +30,7 @@ bundle_install:
 	bundle install
 
 .PHONY: bundle_exec_rspec
+bundle_exec_rspec:
 	bundle exec rspec
 
 .PHONY: gem_test_all
