@@ -1,5 +1,6 @@
 #!/usr/bin/ruby
 
+# spec files must be named with _spec.rb
 realbin=__FILE__
 if File.lstat(realbin).symlink?
 	realbin=File.readlink(__FILE__)
