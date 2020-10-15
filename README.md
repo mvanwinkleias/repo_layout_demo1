@@ -52,8 +52,9 @@ they exist in the form of reference material.
 
 #### Ruby
 
-* https://guides.rubygems.org/patterns/
 * https://guides.rubygems.org/make-your-own-gem/
+* https://guides.rubygems.org/patterns/
+* https://packaging.rubystyle.guide/
 
 
 #### Python
