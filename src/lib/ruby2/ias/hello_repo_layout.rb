@@ -5,7 +5,7 @@ class IAS::HelloRepoLayout
 		puts "Hello, IAS Repo!\n"
 	end
 
-	def simple_return
+	def self.simple_return
 		return 1
 	end
 end
