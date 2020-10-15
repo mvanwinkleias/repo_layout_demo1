@@ -33,6 +33,9 @@ __pycache__/
 *.gem
 .bundle
 
+### For a real project, you might want to check this in
+Gemfile.lock
+
 # Editors
 
 ## Dia

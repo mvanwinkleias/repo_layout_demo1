@@ -17,10 +17,16 @@ dump:
 
 # Bundler stuff
 
+.PHONY: bundle_init
+bundle_init:
+	bundle config set path --local "$(GEM_MAKEFILE_PATH)/.bundle"
+
 .PHONY: bundle_install
 bundle_install:
 	# echo "Gem makefile path: " $(GEM_MAKEFILE_PATH)
-	bundle install --path "$(GEM_MAKEFILE_PATH)/.bundle"
+	# bundle install --path "$(GEM_MAKEFILE_PATH)/.bundle"
+	# bundle install --path "$(GEM_MAKEFILE_PATH)/vendor/bundle"
+	bundle install
 
 .PHONY: bundle_exec_rspec
 	bundle exec rspec
