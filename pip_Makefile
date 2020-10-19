@@ -2,21 +2,22 @@ PIP_MAKEFILE_PATH = $(strip $(dir $(firstword $(MAKEFILE_LIST))))
 PIP_MAKEFILE = $(firstword $(MAKEFILE_LIST))
 
 .PHONY: pip
-
 pip:
 	python3 setup.py sdist bdist_wheel
+
+.PHONY: python_unittests
+python_unittests:
+	$(PIP_MAKEFILE_PATH)/tests/python_unittest/test_some_script.py
 
 .PHONY: pip_prep
 pip_prep:
 	python3 -m pip install --user --upgrade setuptools wheel testresources
 
 .PHONY: pip_install
-
 pip_install:
 	python3 -m pip install .
 
 .PHONY: pip_examine
-
 pip_examine:
 	tar -tzf dist/*.tar.gz
 
