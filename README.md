@@ -69,11 +69,6 @@ they exist in the form of reference material.
 This repository uses a directory structure "deeper" than what is typically used by most programming languages.
 However, it is known to work with generating things like Gems and Pips.
 
-This turns into a huge deal when interacting with members of a specific programming language community.
-Many times a programming language is touted as being "easier", but is often belied by:
-* how much reading and learning one must actually do in order to write code according to standards
-* how fast standards are changing.  Usually it goes: Proposal -> Acceptance -> Reference Material -> Examples .  The lack of current examples is bothersome.
-
 Many people also equate "different" with "non-conformant to standards".
 This attitude is a hindrance to innovation.
 
