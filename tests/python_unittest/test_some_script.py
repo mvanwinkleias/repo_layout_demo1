@@ -14,7 +14,18 @@ sys.path.insert(0,
     )
 )
 
+import unittest
+
 from ias.hello_repo_layout import IASHelloRepoLayout
 
-app = IASHelloRepoLayout()
-app.hello()
+class TestIASHelloRepoLayout(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestIASHelloRepoLayout, self).__init__(*args, **kwargs)
+        self.app = IASHelloRepoLayout()
+
+    def test_simple_return(self):
+        self.assertEqual(self.app.simple_return(), 1, "Should be 1")
+
+
+if __name__ == '__main__':
+    unittest.main()
