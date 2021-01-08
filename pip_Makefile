@@ -23,7 +23,7 @@ pip_examine:
 
 .PHONY: pip_clean
 pip_clean:
-	rm -r build dist src/lib/python3/*.egg-info
+	-rm -r build dist src/lib/python3/*.egg-info
 
 .PHONY: pip_test_all
 pip_test_all:

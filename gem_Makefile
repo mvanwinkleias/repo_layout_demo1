@@ -9,7 +9,7 @@ gem:
 
 .PHONY: clean
 clean:
-	rm *.gem
+	-rm *.gem
 
 .PHONY: dump
 dump:
