@@ -2,6 +2,13 @@ TEST_MAKEFILE_PATH = $(strip $(dir $(firstword $(MAKEFILE_LIST))))
 GEM_MAKEFILE = $(TEST_MAKEFILE_PATH)/gem_Makefile
 PIP_MAKEFILE = $(TEST_MAKEFILE_PATH)/pip_Makefile
 TEST_BIN_DIR = $(TEST_MAKEFILE_PATH)/src/bin
+
+.PHONY: test_all
+test_all: \
+	test_bin_all \
+	test_gem_all \
+	test_pip_all 
+
 .PHONY: test_bin_all
 test_bin_all:
 	php $(TEST_BIN_DIR)/some_script.php

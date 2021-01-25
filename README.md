@@ -389,3 +389,9 @@ a layout.  Use it.
         ├── run_me.sh
         └── some_script.py
 ```
+
+# Some required packages
+
+## Ubuntu
+
+* ruby-rspec
