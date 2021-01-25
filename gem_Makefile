@@ -5,14 +5,14 @@ GEM_MAKEFILE = $(firstword $(MAKEFILE_LIST))
 .PHONY: gem
 
 gem:
-	find ./ -maxdepth 1 '*.gemspec' | xargs -n1 gem build
+	find ./ -maxdepth 1 -name '*.gemspec' | xargs -n1 gem build
 
-.PHONY: clean
-clean:
+.PHONY: gem_clean
+gem_clean:
 	-rm *.gem
 
-.PHONY: dump
-dump:
+.PHONY: gem_dump
+gem_dump:
 	tar --to-stdout -xf *.gem data.tar.gz | tar -zt
 
 
@@ -34,10 +34,8 @@ bundle_exec_rspec:
 	bundle exec rspec
 
 .PHONY: gem_test_all
-gem_test_all:
-	# make -f $(GEM_MAKEFILE) bundle_init
-	# make -f $(GEM_MAKEFILE) bundle_install
-	make -f $(GEM_MAKEFILE) bundle_exec_rspec
-	make -f $(GEM_MAKEFILE) gem
-	make -f $(GEM_MAKEFILE) dump
-	make -f $(GEM_MAKEFILE) clean
+gem_test_all: \
+	gem_clean \
+	bundle_exec_rspec \
+	gem \
+	gem_dump
