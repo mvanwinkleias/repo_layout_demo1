@@ -16,6 +16,11 @@ test_bin_all:
 	"$(TEST_BIN_DIR)/some_script.py"
 	"$(TEST_BIN_DIR)/some_script.rb"
 
+.PHONY: test_clean_all
+test_clean_all:
+	-make -f $(GEM_MAKEFILE) gem_clean
+	-make -f $(PIP_MAKEFILE) pip_clean
+
 .PHONY: test_gem_all
 test_gem_all:
 	make -f $(GEM_MAKEFILE) gem_test_all
@@ -23,3 +28,5 @@ test_gem_all:
 .PHONY: test_pip_all
 test_pip_all:
 	make -f $(PIP_MAKEFILE) pip_test_all
+
+
