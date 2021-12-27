@@ -59,7 +59,16 @@ they exist in the form of reference material.
 * https://www.python.org/dev/peps/pep-0008/
 * https://www.python.org/dev/peps/pep-0420/
 
-## Rant
+## Rants
+
+### Credentials
+
+Please, please do not store credentials anywhere near your code repositories.
+
+You can find many of useful examples for how to avoid this here:
+* src/snippits/load_credentials_from_json_file_in_home_directory
+
+### Repository Structure
 
 This repository uses a directory structure "deeper" than what is typically used by most programming languages.
 However, it is known to work with generating things like Gems and Pips.
@@ -71,6 +80,19 @@ With the examples provided, you should be able to mold them to whatever you want
 If you don't like <strong>src/lib/ruby2</strong> and you just want to use <strong>lib/</strong>
 you can do it.  The layout I've chosen seems to work well with everything at the same time.
 
+### Commit Messages
+
+If you are in a modular environment, with an actual release process,
+commit messages become less important than changelogs.
+
+As a rule, I NEVER let the fact that I don't know what to say in a commit message
+prevent me from committing.  Most times in the earlier stages of a project you
+edit many files and do many things.  If you organize the repo correctly, with
+appropriate file names, you can easily see what's been going on without
+reading the commit messages.  That, and given the nature of git, if you make
+a mistake with a commit message (i.e. include a file that's unrelated to the
+commit message in the commit) how often do you fix that?  You just needed a
+checkpoint to not lose your work. <sup>[commit_messages](#commit_messages)</sup>
 ## Repos, Naming, Grouping files, etc
 
 You're going to have a lot of repos.  Don't fear that.  Naming and organization
@@ -127,19 +149,6 @@ then get organized.
 If you are capable of being modular, then go for it.  That's one of the things
 this tutorial is all about.
 
-## Commit Messages
-
-If you are in a modular environment, with an actual release process,
-commit messages become less important than changelogs.
-
-As a rule, I NEVER let the fact that I don't know what to say in a commit message
-prevent me from committing.  Most times in the earlier stages of a project you
-edit many files and do many things.  If you organize the repo correctly, with
-appropriate file names, you can easily see what's been going on without
-reading the commit messages.  That, and given the nature of git, if you make
-a mistake with a commit message (i.e. include a file that's unrelated to the
-commit message in the commit) how often do you fix that?  You just needed a
-checkpoint to not lose your work. <sup>[commit_messages](#commit_messages)</sup>
 
 
 # The Actual Tutorial
