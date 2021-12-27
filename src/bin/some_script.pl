@@ -10,7 +10,7 @@ use lib "$RealBin/../lib/perl5";
 
 use IAS::HelloRepoLayout;
 
-IAS::HelloRepoLayout::hello();
+# IAS::HelloRepoLayout::hello();
 
 # We can also do OO easily:
 
