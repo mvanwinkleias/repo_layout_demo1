@@ -4,5 +4,5 @@
 # where the python script is a symbolic link.
 
 script="$1"; shift
-dir=$( dirname $( realpath "$script" ) )
-cd "$dir" && pipenv run python "$script" $@
+dir=$( dirname "$( realpath "$script" )" )
+cd "$dir" && pipenv run python "$script" "$@"
