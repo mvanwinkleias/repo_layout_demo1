@@ -36,13 +36,8 @@ For the short term the answers to most questions are mostly going to be:
 These techniques are revision control system agnostic.  That said,
 the majority of my work is in git.
 
-## Repo Naming, Groups, etc
 
-You're going to have a lot of repos.  Don't fear that.  Naming and organization
-are important.  But, you can always change names, and move repos around.  That's
-relatively easy.
-
-### Standards Conformance
+## Standards Conformance
 
 Many programming languages have an active standards development community, and many things can and do change.
 Many programming languages require you to read multiple (and lengthy) documents in order to conform to standards.
@@ -50,7 +45,7 @@ Many programming languages require you to read multiple (and lengthy) documents 
 Most times the most recent standards for packaging for a programming language do not exist in the form of examples,
 they exist in the form of reference material.
 
-#### Ruby
+### Ruby
 
 * https://guides.rubygems.org/make-your-own-gem/
 * https://guides.rubygems.org/patterns/
@@ -58,13 +53,13 @@ they exist in the form of reference material.
 * https://guides.rubygems.org/name-your-gem/
 
 
-#### Python
+### Python
 
 * https://packaging.python.org/tutorials/packaging-projects/
 * https://www.python.org/dev/peps/pep-0008/
 * https://www.python.org/dev/peps/pep-0420/
 
-#### Rant
+## Rant
 
 This repository uses a directory structure "deeper" than what is typically used by most programming languages.
 However, it is known to work with generating things like Gems and Pips.
@@ -76,9 +71,13 @@ With the examples provided, you should be able to mold them to whatever you want
 If you don't like <strong>src/lib/ruby2</strong> and you just want to use <strong>lib/</strong>
 you can do it.  The layout I've chosen seems to work well with everything at the same time.
 
-### "One-Off" Repos
+## Repos, Naming, Grouping files, etc
 
-#### "Unimportant Stuff"
+You're going to have a lot of repos.  Don't fear that.  Naming and organization
+are important.  But, you can always change names, and move repos around.  That's
+relatively easy.
+
+### "Unimportant Stuff"
 Let's say you're programming something, and you don't know if it's going to be important.
 It's unrelated to other things.  You don't know if it's going to be useful.
 (Any code that you've saved that you can look at later is useful...)
@@ -102,14 +101,14 @@ into their source directory, it's more obvious what that repo does and it manage
 
 There is typically less formality and accountability with personal repos.
 
-#### "Important" Stuff
+### "Important" Stuff
 
 You will want to have a space for "production" repos.
 
 If you deploy with packages, you'll want
 a way to refer to the repository location that housed the code for the artifact.
 
-### Grouped
+### Groups of Similar Things
 
 I have repos for:
 
@@ -128,7 +127,7 @@ then get organized.
 If you are capable of being modular, then go for it.  That's one of the things
 this tutorial is all about.
 
-#### Commit Messages
+## Commit Messages
 
 If you are in a modular environment, with an actual release process,
 commit messages become less important than changelogs.
