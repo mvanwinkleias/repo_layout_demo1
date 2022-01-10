@@ -1,5 +1,8 @@
 #!/usr/bin/perl
 
+use strict;
+use warnings;
+
 package IAS::HelloRepoLayout;
 
 sub hello

@@ -1,3 +1,5 @@
+""" Example import. """
+
 # Here's how you'd specify the full thing:
 # from ias.hello_repo_layout.hello_repo_layout import *
 # Here's how you'd specify the relative thing:
