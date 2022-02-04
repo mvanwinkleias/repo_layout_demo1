@@ -1,43 +1,36 @@
 """ Hello, Jinja2 layout! """
+# import os
+# import pprint
+
 import jinja2
-import os
-import pprint
-
 class IASHelloJinja2Layout:
-
+    """ Hello, Jinja2 layout! """
     class_templates = {
         "hello_template" : {
-            "path" : "hello.txt.jinja2",
+            "text" : {
+                "file_name" : "hello.txt.jinja2",
+            },
         },
     }
 
     def __init__(self):
-
-        # self.template_dir = os.path.dirname(os.path.realpath(__file__))
-        # self.template_loader = jinja2.FileSystemLoader( searchpath = self.template_dir )
-        # self.template_env = jinja2.Environment( loader = self.template_loader )
+        """ Initializes the object. """
 
         self.templates = {}
         self.templates.update(self.class_templates)
 
-        pprint.pprint(self.templates)
         self.template_env = jinja2.Environment(
-            loader = jinja2.PackageLoader(__name__)
+            loader=jinja2.PackageLoader(__name__)
         )
 
-    def get_template(self, template_name):
+    def get_template(self, template_name, format_type):
+        """ Returns a template. """
 
-        # return self.template_env.get_template(self.templates[template_name][path])
-        # return self.template_env.get_template(self.class_templates[template_name]["path"])
-        return self.template_env.get_template(self.templates[template_name]["path"])
-        # return self.template_env.get_template("hello.txt.jinja2")
+        return self.template_env.get_template(
+            self.templates[template_name][format_type]["file_name"]
+        )
 
-    """ Hello, repo layout! """
     def hello(self): # pylint: disable=no-self-use
         """ This says hello. """
-        template = self.get_template("hello_template")
+        template = self.get_template("hello_template", "text")
         print(template.render())
-
-    def simple_return(self): # pylint: disable=no-self-use
-        """ This just returns something. """
-        return 1
