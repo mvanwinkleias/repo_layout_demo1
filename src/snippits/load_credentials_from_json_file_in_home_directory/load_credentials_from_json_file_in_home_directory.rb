@@ -8,8 +8,6 @@ opts = GetoptLong.new(
   [ '--ipam-credentials-file', GetoptLong::OPTIONAL_ARGUMENT ],
 )
 
-# pp(opts)
-
 options = {
   'ipam-credentials-file' => File.expand_path('~/.config/IAS/some-awesome-project/ipam_credentials.json')
 }
