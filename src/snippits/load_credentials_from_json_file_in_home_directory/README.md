@@ -19,7 +19,7 @@ For these examples to work, create ~/.config/IAS/some-awesome-project/ipam_crede
 
 Remember, **chmod 600** the file.
 
-Optionally, you can create ~/.config/IAS/my_credentials/ipam_credentials.json and symbolically
+Optionally, you can create (say) ~/.config/IAS/my_credentials/ipam_credentials.json and symbolically
 link it to ~/.config/IAS/some-awesome-project/ipam_credentials.json .
 
 This will allow you to use the same set of credentials for multiple projects that access
