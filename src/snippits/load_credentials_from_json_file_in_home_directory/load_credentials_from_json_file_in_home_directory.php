@@ -8,7 +8,13 @@ function loadJSONFromFile($filename)
 {
     $contents = file_get_contents($filename);
     assert(strlen($contents)>0);
-    return json_decode($contents);
+    $json_stuff=json_decode($contents, true);
+    if ($json_stuff === null)
+    {
+        fwrite(STDERR, "Bad json file: $filename" + PHP_EOL);
+        exit(1);
+    }
+    return $json_stuff;
 }
 
 $my_home_dir = posix_getpwuid(posix_getuid())['dir'];
