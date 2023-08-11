@@ -8,7 +8,7 @@ use Data::Dumper;
 use Getopt::Long;
 
 my $OPTIONS_VALUES = {
-	'credentials-file' => glob('~/.config/IAS/some-awesome-project/ipam_credentials.json '),
+	'credentials-file' => glob('~/.config/IAS/some-awesome-project/ipam_credentials.json'),
 };
 
 my @OPTIONS = (
