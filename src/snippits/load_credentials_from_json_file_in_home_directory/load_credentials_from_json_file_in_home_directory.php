@@ -11,7 +11,7 @@ function loadJSONFromFile($filename)
     $json_stuff=json_decode($contents, true);
     if ($json_stuff === null)
     {
-        fwrite(STDERR, "Bad json file: $filename" + PHP_EOL);
+        fwrite(STDERR, "Bad json file: $filename" . PHP_EOL);
         exit(1);
     }
     return $json_stuff;
