@@ -20,16 +20,19 @@ $shortopts = "";
 $longopts = array(
     'ipam-credentials-file::', // This is optional
 );
+$default_options = array(
+    'ipam-credentials-file' => "$my_home_dir/.config/IAS/some-awesome-project/ipam_credentials.json",
+);
 
-$options = getopt($shortopts, $longopts);
+// Addition of associative arrays in PHP is UNION with left side
+// preferred
+$options = getopt($shortopts, $longopts) + $default_options;
 
-// Set default value for options:
-$ipam_credentials_file = $options['ipam-credentials-file']
-    ?? "$my_home_dir/.config/IAS/some-awesome-project/ipam_credentials.json";
-
-// print("ipam_credentials_file: " . $ipam_credentials_file . "\n");
-
-$ipam_credentials = loadJSONFromFile($ipam_credentials_file);
+$ipam_credentials = loadJSONFromFile($options['ipam-credentials-file']);
 // End Boilerplate code for options
 
+print("Options:\n");
+var_dump($options);
+
+print("Credentials:\n");
 var_dump($ipam_credentials);
