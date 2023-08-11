@@ -17,7 +17,7 @@ function loadJSONFromFile($filename)
     return $json_stuff;
 }
 
-$my_home_dir = posix_getpwuid(posix_getuid())['dir'];
+$my_home_dir = getenv('HOME') != '' ? getenv('HOME') : posix_getpwuid(posix_getuid())['dir'];
 
 $shortopts = "";
 $longopts = array(
