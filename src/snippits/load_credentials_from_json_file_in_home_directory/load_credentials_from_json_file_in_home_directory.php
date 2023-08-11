@@ -12,11 +12,7 @@ function loadJSONFromFile($filename)
     return json_decode($contents);
 }
 
-$my_home_dir = posix_getpwnam(
-    getenv('LOGNAME') != '' ? getenv('LOGNAME')
-    : getenv('USER') != '' ? getenv('USER')
-    : null
-)['dir'];
+$my_home_dir = posix_getpwuid(posix_getuid())['dir'];
 // End COPY/PASTE
 
 // Boilerplate code for options
