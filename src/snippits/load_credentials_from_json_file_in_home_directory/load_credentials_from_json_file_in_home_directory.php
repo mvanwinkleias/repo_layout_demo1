@@ -2,7 +2,7 @@
 
 // Load credentials from a file in your home directory
 // Command line options:
-//     --ipam-config-file='/some/other/path.json'
+//     --ipam-credentials-file='/some/other/path.json'
 
 // COPY/PASTE (doesn't change)
 function loadJSONFromFile($filename)
