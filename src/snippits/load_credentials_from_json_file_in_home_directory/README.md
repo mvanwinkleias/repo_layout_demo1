@@ -8,7 +8,7 @@ One possible solution is to store credentials in your home directory.
 I work at ias.edu .  I have a ~/.config/IAS/ directory where I put sensitive
 configuration files.
 
-For these examples to work, create ~/.config/IAS/some-awesome-project/ipam_credentials.json :
+For these examples to work, create ~/.config/IAS/some-awesome-project/ipam_credentials.json ;
 
 ```
 {

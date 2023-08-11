@@ -8,11 +8,11 @@ use Data::Dumper;
 use Getopt::Long;
 
 my $OPTIONS_VALUES = {
-	'credentials-file' => glob('~/.config/IAS/some-awesome-project/ipam_credentials.json'),
+	'ipam-credentials-file' => glob('~/.config/IAS/some-awesome-project/ipam_credentials.json'),
 };
 
 my @OPTIONS = (
-	'credentials-file=s'
+	'ipam-credentials-file=s'
 );
 
 GetOptions(
@@ -21,7 +21,7 @@ GetOptions(
 )
 or die "Bad options.\n";
 
-print Dumper(load_json_file($OPTIONS_VALUES->{'credentials-file'}));
+print Dumper(load_json_file($OPTIONS_VALUES->{'ipam-credentials-file'}));
 
 exit;
 
