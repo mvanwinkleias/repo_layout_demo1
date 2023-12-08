@@ -33,4 +33,5 @@ class IASHelloJinja2Layout:
     def hello(self): # pylint: disable=no-self-use
         """ This says hello. """
         template = self.get_template("hello_template", "text")
-        print(template.render())
+        data = { 'some_key' : 'some_value' }
+        print(template.render(data))
