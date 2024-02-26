@@ -1,6 +1,6 @@
 """ Hello, repo layout! """
 
-class IASHelloRepoLayout:
+class sample_application1:
     """ Hello, repo layout! """
     def hello(self): # pylint: disable=no-self-use
         """ This says hello. """

@@ -14,9 +14,9 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.realpath
 
 # pylint: disable=wrong-import-position
 # Put your imports here:
-from ias.hello_repo_layout import IASHelloRepoLayout
+import ias.hello_repo_layout.sample_application
 
 # pylint: enable=wrong-import-position
 if __name__ == "__main__":
-    APP = IASHelloRepoLayout()
+    APP = ias.hello_repo_layout.sample_application.sample_application1()
     APP.hello()
