@@ -1,0 +1,244 @@
+<head>
+<script>
+var languages = {
+	perl : ['some_script.pl', 'HelloRepoLayout.pm'],
+	php : ['some_script.php', 'HelloRepoLayout.php'],
+	python : ['some_script.py', 'sample_application.py'],
+	ruby : ['some_script.rb', 'hello_repo_layout.rb'],
+	
+};
+
+function init_code_display()
+{
+	for (const language of Object.keys(languages))
+	{
+		for (const id of languages[language])
+		{
+			var x = document.getElementById(id);
+			x.style.display = "none";
+		}
+	}
+}
+function show_code(language)
+{
+	// console.log("HELLOOOO");
+	init_code_display();
+	for (const element of languages[language])
+	{
+		var x = document.getElementById(element)
+		if (x.style.display === "none")
+		{
+			x.style.display = "block";
+		}
+		else
+		{
+			x.style.display = "none";
+		}
+	}
+}
+</script>
+
+
+</head>
+
+<table border cellpadding=2 cellspacing=0> 
+<tr><td valign=top>
+
+<tt>
+src<br>
+├──&nbsp;bin<br>
+│  &nbsp;├──&nbsp;<a href="#" onclick="show_code('php')">some_script.php</a><br>
+│  &nbsp;├──&nbsp;<a href="#" onclick="show_code('perl')">some_script.pl</a><br>
+│  &nbsp;├──&nbsp;<a href="#" onclick="show_code('python')">some_script.py</a><br>
+│  &nbsp;└──&nbsp;<a href="#" onclick="show_code('ruby')">some_script.rb</a><br>
+└──&nbsp;lib<br>
+&nbsp;  &nbsp;├──&nbsp;perl5<br>
+&nbsp;  &nbsp;│  &nbsp;└──&nbsp;IAS<br>
+&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('perl')">HelloRepoLayout.pm</a><br>
+&nbsp;  &nbsp;├──&nbsp;php7<br>
+&nbsp;  &nbsp;│  &nbsp;└──&nbsp;IAS<br>
+&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('php')">HelloRepoLayout.php</a><br>
+&nbsp;  &nbsp;├──&nbsp;python3<br>
+&nbsp;  &nbsp;│  &nbsp;└──&nbsp;ias<br>
+&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;hello_repo_layout<br>
+&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('python')">sample_application.py</a><br>
+&nbsp;  &nbsp;└──&nbsp;ruby2<br>
+&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;ias<br>
+&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('ruby')">hello_repo_layout.rb</a><br>
+</tt>
+</td>
+<td valign=top>
+<div style="display:none" id="some_script.php">
+<textarea cols="80" rows="25">
+&lt;?php
+// File: some_script.php
+set_include_path(join(
+    PATH_SEPARATOR,
+    [
+        dirname(realpath($argv[0])).'/../lib/php7',
+        '/opt/IAS/lib/php7',
+        get_include_path(),
+    ]
+));
+
+include &quot;IAS/HelloRepoLayout.php&quot;;
+
+$app = new IAS\HelloRepoLayout();
+
+$app-&gt;hello();
+</textarea>
+<hr>
+</div>
+<div style="display:none" id="HelloRepoLayout.php">
+<textarea cols="80" rows="25">
+&lt;?php
+// File: HelloRepoLayout.php
+namespace IAS;
+
+/**
+ * An example application
+ */
+
+class HelloRepoLayout
+{
+
+    /**
+     * The entry point.
+     *
+     */
+    public function hello()
+    {
+        print(&quot;Hello, IAS Repo!\n&quot;);
+    }
+}
+</textarea>
+</div>
+<div style="display:none" id="some_script.pl">
+<textarea cols="80" rows="25">
+#!/usr/bin/perl
+# File: some_script.pl
+use strict;
+use warnings;
+
+use lib '/opt/IAS/lib/perl5';
+
+use FindBin qw($RealBin);
+use lib &quot;$RealBin/../lib/perl5&quot;;
+
+use IAS::HelloRepoLayout;
+
+# IAS::HelloRepoLayout::hello();
+
+# We can also do OO easily:
+
+my $app = IAS::HelloRepoLayout-&gt;new();
+$app-&gt;hello();
+</textarea>
+<hr>
+</div>
+<div style="display:none" id="HelloRepoLayout.pm">
+<textarea cols="80" rows="25">
+#!/usr/bin/perl
+# File: HelloRepoLayout.pm
+use strict;
+use warnings;
+
+package IAS::HelloRepoLayout;
+
+sub hello
+{
+	print &quot;Hello, IAS Repo!\n&quot;
+}
+1;
+
+sub new
+{
+	my $type = shift;
+	my $self = {};
+	return bless $self, $type;
+}
+</textarea>
+</div>
+
+<div style="display:none" id="some_script.py">
+<textarea cols="80" rows="25">
+#!/usr/bin/python3
+# File: some_script.py
+""" Project layout example """
+
+# This is the code necessary to use things under src/lib.
+# You can put your regular python stuff after these path
+# manipulations.
+
+import os
+import sys
+
+sys.path.insert(0, '/opt/IAS/lib/python3')
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), '../lib/python3'))) # pylint: disable=line-too-long
+
+# pylint: disable=wrong-import-position
+# Put your imports here:
+import ias.hello_repo_layout.sample_application
+
+# pylint: enable=wrong-import-position
+if __name__ == "__main__":
+    APP = ias.hello_repo_layout.sample_application.sample_application1()
+    APP.hello()
+</textarea>
+<hr>
+</div>
+<div style="display:none" id="sample_application.py">
+<textarea cols="80" rows="25">
+# File: sample_application.py
+&quot;&quot;&quot; Hello, repo layout! &quot;&quot;&quot;
+
+class sample_application1:
+    &quot;&quot;&quot; Hello, repo layout! &quot;&quot;&quot;
+    def hello(self): # pylint: disable=no-self-use
+        &quot;&quot;&quot; This says hello. &quot;&quot;&quot;
+        print(&quot;Hello, IAS Repo!&quot;)
+    def simple_return(self): # pylint: disable=no-self-use
+        &quot;&quot;&quot; This just returns something. &quot;&quot;&quot;
+        return 1
+</textarea>
+</div>
+<div style="display:none" id="some_script.rb">
+<textarea cols="80" rows="25">
+#!/usr/bin/ruby
+# File: some_script.rb
+realbin = $0
+if File.lstat(realbin).symlink?
+  realbin = File.readlink($0)
+end
+
+$LOAD_PATH.unshift('/opt/IAS/lib/ruby2')
+$LOAD_PATH.unshift(File.expand_path('../lib/ruby2/', File.dirname(realbin)))
+
+require 'ias/hello_repo_layout'
+
+app = IAS::HelloRepoLayout.new
+
+app.hello
+</textarea>
+<hr>
+</div>
+<div style="display:none" id="hello_repo_layout.rb">
+<textarea cols="80" rows="25">
+module IAS; end
+# File: hello_repo_layout.rb
+class IAS::HelloRepoLayout
+  # This is an instance method
+  def hello
+    puts &quot;Hello, IAS Repo!\n&quot;
+  end
+
+  # This is a class method
+  def self.simple_return
+    return 1
+  end
+end
+</textarea>
+</div>
+</td>
+</tr></table>
+
