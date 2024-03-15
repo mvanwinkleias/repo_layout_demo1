@@ -42,19 +42,19 @@ function show_code(language)
 </head>
 
 <body>
-<h1>Starting Off Projects With Modularity: Non-Interfering Project Overlays From The Programming Language Perspective</h1>
+<h1>Starting Off Projects With Modularity</h1>
 
 <p>This page demonstrates how to have multiple complex programs written in
 multiple scripting languages coexist in the same repository.
 
 <h2>Why?</h2>
 
-<p>If you're asking yourself "Why?", there are a number of reasons.  First, though,
+<p>There are a number of reasons.  First, 
 the fact that modularized programs can happily coexist with other programs
 should be a good enough answer.  If you've found yourself struggling with
-developing complex programs in a SINGLE programming language so they don't
+developing complex programs in a single programming language so they don't
 interfere with each other: this demonstrates that it's possible to do it for
-MANY programming languages.
+many programming languages, not just one.
 
 <p>Below you will see a directory tree containing "entry point" scripts (src/bin)
 and libraries (src/lib).
@@ -267,7 +267,7 @@ end
 <p>Have you ever not made a pip, gem, or package out of your code because
 you have to change too many things in a gemfile, setup.py, or whatever?
 
-<p>I don't have that problem.  I use packaging code that's aware that things
+<p>I don't have that problem.  I use packaging code which is aware that things
 under src/bin get installed like they're programs that get run.  Things under
 src/lib get installed as libraries.
 
