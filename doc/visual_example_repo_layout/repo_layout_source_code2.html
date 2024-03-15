@@ -42,13 +42,10 @@ function show_code(language)
 </head>
 
 <body>
-<h1>Non-Interfering Project Overlays - Programming Language Perspective</h1>
+<h1>Starting Off Projects With Modularity: Non-Interfering Project Overlays From The Programming Language Perspective</h1>
 
 <p>This page demonstrates how to have multiple complex programs written in
 multiple scripting languages coexist in the same repository.
-Teaching the concept of "non-interfering overlays" is difficult when there's a lot
-of information to be taught and a lot that's to be ignored; so this is an attempt
-to demonstrate a minimal and functional layout.
 
 <h2>Why?</h2>
 
@@ -57,7 +54,7 @@ the fact that modularized programs can happily coexist with other programs
 should be a good enough answer.  If you've found yourself struggling with
 developing complex programs in a SINGLE programming language so they don't
 interfere with each other: this demonstrates that it's possible to do it for
-ALL programming languages.
+MANY programming languages.
 
 <p>Below you will see a directory tree containing "entry point" scripts (src/bin)
 and libraries (src/lib).
@@ -68,30 +65,31 @@ the source code for both should appear on the right.
 <p>This shows a way to "plumb in" a complex script (i.e. a "Hello World") during
 initial development so as to not paint yourself into a corner organizationally.
 
+<a id="code_listing"></a>
 <table border cellpadding=2 cellspacing=0> 
 <tr><td valign=top>
 
 <tt>
 src<br>
 ├──&nbsp;bin<br>
-│  &nbsp;├──&nbsp;<a href="#" onclick="show_code('php')">some_script.php</a><br>
-│  &nbsp;├──&nbsp;<a href="#" onclick="show_code('perl')">some_script.pl</a><br>
-│  &nbsp;├──&nbsp;<a href="#" onclick="show_code('python')">some_script.py</a><br>
-│  &nbsp;└──&nbsp;<a href="#" onclick="show_code('ruby')">some_script.rb</a><br>
+│  &nbsp;├──&nbsp;<a href="#code_listing" onclick="show_code('php')">some_script.php</a><br>
+│  &nbsp;├──&nbsp;<a href="#code_listing" onclick="show_code('perl')">some_script.pl</a><br>
+│  &nbsp;├──&nbsp;<a href="#code_listing" onclick="show_code('python')">some_script.py</a><br>
+│  &nbsp;└──&nbsp;<a href="#code_listing" onclick="show_code('ruby')">some_script.rb</a><br>
 └──&nbsp;lib<br>
 &nbsp;  &nbsp;├──&nbsp;perl5<br>
 &nbsp;  &nbsp;│  &nbsp;└──&nbsp;IAS<br>
-&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('perl')">HelloRepoLayout.pm</a><br>
+&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#code_listing" onclick="show_code('perl')">HelloRepoLayout.pm</a><br>
 &nbsp;  &nbsp;├──&nbsp;php7<br>
 &nbsp;  &nbsp;│  &nbsp;└──&nbsp;IAS<br>
-&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('php')">HelloRepoLayout.php</a><br>
+&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#code_listing" onclick="show_code('php')">HelloRepoLayout.php</a><br>
 &nbsp;  &nbsp;├──&nbsp;python3<br>
 &nbsp;  &nbsp;│  &nbsp;└──&nbsp;ias<br>
 &nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;hello_repo_layout<br>
-&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('python')">sample_application.py</a><br>
+&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#code_listing" onclick="show_code('python')">sample_application.py</a><br>
 &nbsp;  &nbsp;└──&nbsp;ruby2<br>
 &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;ias<br>
-&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('ruby')">hello_repo_layout.rb</a><br>
+&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#code_listing" onclick="show_code('ruby')">hello_repo_layout.rb</a><br>
 </tt>
 </td>
 <td valign=top>
@@ -154,10 +152,6 @@ use lib &quot;$RealBin/../lib/perl5&quot;;
 
 use IAS::HelloRepoLayout;
 
-# IAS::HelloRepoLayout::hello();
-
-# We can also do OO easily:
-
 my $app = IAS::HelloRepoLayout-&gt;new();
 $app-&gt;hello();
 </textarea>
@@ -193,10 +187,6 @@ sub new
 # File: some_script.py
 """ Project layout example """
 
-# This is the code necessary to use things under src/lib.
-# You can put your regular python stuff after these path
-# manipulations.
-
 import os
 import sys
 
@@ -205,9 +195,11 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.realpath
 
 # pylint: disable=wrong-import-position
 # Put your imports here:
+
 import ias.hello_repo_layout.sample_application
 
 # pylint: enable=wrong-import-position
+
 if __name__ == "__main__":
     APP = ias.hello_repo_layout.sample_application.sample_application1()
     APP.hello()
@@ -302,24 +294,37 @@ script file, AND they know how to find libraries in /opt/IAS/lib .
 demonstration purposes.
 
 <h2> "Supporting" Files</h2>
+
+<h3>Sample Repo Layout</h3>
+
+All of the example files, along with rants and more examples can be found here:
+<ul><li><a href="https://github.com/mvanwinkleias/repo_layout_demo1">Sample Repo Layout</a></li></ul>
+
 <h3>Gem</h3>
+<ul><li>
 <a href="https://github.com/theias/ias_package_shell/tree/master/src/templates/project_dir/examples/gem">Sample gemspec and Makefile</a>
+</li></ul>
 
 <h3>Pip</h3>
+<ul><li>
 <a href="https://github.com/theias/ias_package_shell/tree/master/src/templates/project_dir/examples/pip">Sample setup.py and Makefile</a>
+</li></ul>
 
 <h3>PHP</h3>
+
+<ul><li>
 <a href="https://github.com/theias/ias_package_shell/tree/master/src/templates/project_dir/examples/composer">Sample PHP composer things</a>
+</li></ul>
 
 <h3>Perl</h3>
 
 Perl has had this stuff "right" for a long time.
 <ul>
-<li>Make a directory called "src/CPAN"
+<li>Make a directory called "src/CPAN" and cd to it.
 <li>Run module-starter
 <li>Answer questions
 <li>Symbolically link the library directory to src/lib/perl5
-<li>Profit
+<li>Profit.
 </ul>
 
 You can always migrate to a "pure" repository layout later because things were
