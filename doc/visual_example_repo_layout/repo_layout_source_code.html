@@ -3,8 +3,8 @@
 var languages = {
 	perl : ['some_script.pl', 'HelloRepoLayout.pm'],
 	php : ['some_script.php', 'HelloRepoLayout.php'],
-//	python : ['some_script.py', 'sample_application.py'],
-//	ruby : ['some_script.rb', 'hello_repo_layout.rb'],
+	python : ['some_script.py', 'sample_application.py'],
+	ruby : ['some_script.rb', 'hello_repo_layout.rb'],
 	
 };
 
@@ -54,24 +54,24 @@ src<br>
 └──&nbsp;lib<br>
 &nbsp;  &nbsp;├──&nbsp;perl5<br>
 &nbsp;  &nbsp;│  &nbsp;└──&nbsp;IAS<br>
-&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;HelloRepoLayout.pm<br>
+&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('perl')">HelloRepoLayout.pm</a><br>
 &nbsp;  &nbsp;├──&nbsp;php7<br>
 &nbsp;  &nbsp;│  &nbsp;└──&nbsp;IAS<br>
-&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;HelloRepoLayout.php<br>
+&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('php')">HelloRepoLayout.php</a><br>
 &nbsp;  &nbsp;├──&nbsp;python3<br>
 &nbsp;  &nbsp;│  &nbsp;└──&nbsp;ias<br>
 &nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;hello_repo_layout<br>
-&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;sample_application.py<br>
+&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('python')">sample_application.py</a><br>
 &nbsp;  &nbsp;└──&nbsp;ruby2<br>
 &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;ias<br>
-&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;hello_repo_layout.rb<br>
+&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#" onclick="show_code('ruby')">hello_repo_layout.rb</a><br>
 </tt>
 </td>
 <td valign=top>
 <div style="display:none" id="some_script.php">
 <pre>
 &lt;?php
-// some_script.php
+// File: some_script.php
 set_include_path(join(
     PATH_SEPARATOR,
     [
@@ -92,7 +92,7 @@ $app-&gt;hello();
 <div style="display:none" id="HelloRepoLayout.php">
 <pre>
 &lt;?php
-// HelloRepoLayout.php
+// File: HelloRepoLayout.php
 namespace IAS;
 
 /**
@@ -116,7 +116,7 @@ class HelloRepoLayout
 <div style="display:none" id="some_script.pl">
 <pre>
 #!/usr/bin/perl
-# some_script.pl
+# File: some_script.pl
 use strict;
 use warnings;
 
@@ -139,7 +139,7 @@ $app-&gt;hello();
 <div style="display:none" id="HelloRepoLayout.pm">
 <pre>
 #!/usr/bin/perl
-# HelloRepoLayout.pm
+# File: HelloRepoLayout.pm
 use strict;
 use warnings;
 
@@ -160,6 +160,84 @@ sub new
 </pre>
 </div>
 
+<div style="display:none" id="some_script.py">
+<pre>
+#!/usr/bin/python3
+# File: some_script.py
+""" Project layout example """
+
+# This is the code necessary to use things under src/lib.
+# You can put your regular python stuff after these path
+# manipulations.
+
+import os
+import sys
+
+sys.path.insert(0, '/opt/IAS/lib/python3')
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), '../lib/python3'))) # pylint: disable=line-too-long
+
+# pylint: disable=wrong-import-position
+# Put your imports here:
+import ias.hello_repo_layout.sample_application
+
+# pylint: enable=wrong-import-position
+if __name__ == "__main__":
+    APP = ias.hello_repo_layout.sample_application.sample_application1()
+    APP.hello()
+</pre>
+<hr>
+</div>
+<div style="display:none" id="sample_application.py">
+<pre>
+# File: sample_application.py
+&quot;&quot;&quot; Hello, repo layout! &quot;&quot;&quot;
+
+class sample_application1:
+    &quot;&quot;&quot; Hello, repo layout! &quot;&quot;&quot;
+    def hello(self): # pylint: disable=no-self-use
+        &quot;&quot;&quot; This says hello. &quot;&quot;&quot;
+        print(&quot;Hello, IAS Repo!&quot;)
+    def simple_return(self): # pylint: disable=no-self-use
+        &quot;&quot;&quot; This just returns something. &quot;&quot;&quot;
+        return 1
+</pre>
+</div>
+<div style="display:none" id="some_script.rb">
+<pre>
+#!/usr/bin/ruby
+# File: some_script.rb
+realbin = $0
+if File.lstat(realbin).symlink?
+  realbin = File.readlink($0)
+end
+
+$LOAD_PATH.unshift('/opt/IAS/lib/ruby2')
+$LOAD_PATH.unshift(File.expand_path('../lib/ruby2/', File.dirname(realbin)))
+
+require 'ias/hello_repo_layout'
+
+app = IAS::HelloRepoLayout.new
+
+app.hello</pre>
+<hr>
+</div>
+<div style="display:none" id="hello_repo_layout.rb">
+<pre>
+module IAS; end
+# File: hello_repo_layout.rb
+class IAS::HelloRepoLayout
+  # This is an instance method
+  def hello
+    puts &quot;Hello, IAS Repo!\n&quot;
+  end
+
+  # This is a class method
+  def self.simple_return
+    return 1
+  end
+end
+</pre>
+</div>
 </td>
 </tr></table>
 
