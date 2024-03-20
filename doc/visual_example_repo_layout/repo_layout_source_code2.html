@@ -3,7 +3,7 @@
 var languages = {
 	perl : ['some_script.pl', 'HelloRepoLayout.pm'],
 	php : ['some_script.php', 'HelloRepoLayout.php'],
-	python : ['some_script.py', 'sample_application.py'],
+	python : ['some_script.py', 'hello_repo_layout.py'],
 	ruby : ['some_script.rb', 'hello_repo_layout.rb'],
 	
 };
@@ -85,8 +85,7 @@ src<br>
 &nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#code_listing" onclick="show_code('php')">HelloRepoLayout.php</a><br>
 &nbsp;  &nbsp;├──&nbsp;python3<br>
 &nbsp;  &nbsp;│  &nbsp;└──&nbsp;ias<br>
-&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;hello_repo_layout<br>
-&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#code_listing" onclick="show_code('python')">sample_application.py</a><br>
+&nbsp;  &nbsp;│  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#code_listing" onclick="show_code('python')">hello_repo_layout.py</a><br>
 &nbsp;  &nbsp;└──&nbsp;ruby2<br>
 &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;ias<br>
 &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;<a href="#code_listing" onclick="show_code('ruby')">hello_repo_layout.rb</a><br>
@@ -185,7 +184,11 @@ sub new
 <textarea cols="80" rows="25">
 #!/usr/bin/python3
 # File: some_script.py
-""" Project layout example """
+&quot;&quot;&quot; Project layout example &quot;&quot;&quot;
+
+# This is the code necessary to use things under src/lib.
+# You can put your regular python stuff after these path
+# manipulations.
 
 import os
 import sys
@@ -195,23 +198,21 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.realpath
 
 # pylint: disable=wrong-import-position
 # Put your imports here:
-
-import ias.hello_repo_layout.sample_application
+import ias.hello_repo_layout
 
 # pylint: enable=wrong-import-position
-
-if __name__ == "__main__":
-    APP = ias.hello_repo_layout.sample_application.sample_application1()
+if __name__ == &quot;__main__&quot;:
+    APP = ias.hello_repo_layout.hello_repo_layout()
     APP.hello()
 </textarea>
 <hr>
 </div>
-<div style="display:none" id="sample_application.py">
+<div style="display:none" id="hello_repo_layout.py">
 <textarea cols="80" rows="25">
-# File: sample_application.py
+# File: hello_repo_layout.py
 &quot;&quot;&quot; Hello, repo layout! &quot;&quot;&quot;
 
-class sample_application1:
+class hello_repo_layout:
     &quot;&quot;&quot; Hello, repo layout! &quot;&quot;&quot;
     def hello(self): # pylint: disable=no-self-use
         &quot;&quot;&quot; This says hello. &quot;&quot;&quot;
