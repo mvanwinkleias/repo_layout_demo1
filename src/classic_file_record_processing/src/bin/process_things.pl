@@ -58,6 +58,7 @@ sub process_files
 			}
 			
 			$self->process_file($fh);
+			$fh->close();
 		}
 	}
 	else
