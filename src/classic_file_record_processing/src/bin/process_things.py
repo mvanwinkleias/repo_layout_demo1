@@ -5,7 +5,15 @@ import os
 import pprint
 
 class Processor1:
+    argument_parser = {
+        'prog' : os.path.basename(__file__),
+        'description' : 'This processes things.',
+        'epilog' : 'Why do things like this?',
+    }
+    
+
     arguments = {
+        'dump-self' : { 'action':'store_true' },
         'some-config-file' : {
             'type' : os.path.expanduser,
             'default' : '~/.config/some-config-file.json',
@@ -15,11 +23,12 @@ class Processor1:
 
     def load_arguments( self ):
         parser = argparse.ArgumentParser(
-            description="This processes things.",
+            ** self.argument_parser
         )
 
         for argument_name in self.arguments:
             arg_dict = self.arguments[argument_name]
+            arg_dict['dest'] = argument_name
             parser.add_argument(
                 '--' + argument_name,
                 **arg_dict,
@@ -31,9 +40,11 @@ class Processor1:
     def run( self ):
         # print("Hello, self")
         self.argparse = self.load_arguments()
-        self.args = vars(self.argparse.parse_args())
+        self.argument_values = vars(self.argparse.parse_args())
 
-        pprint.pp(self.args)
+        if (self.argument_values['dump-self']):
+            pp = pprint.PrettyPrinter(indent=4)
+            pp.pprint(self.__dict__)
 
 
 if __name__ == '__main__':
