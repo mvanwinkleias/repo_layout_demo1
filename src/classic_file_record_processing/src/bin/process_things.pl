@@ -16,7 +16,13 @@ our $OPTIONS = [
 ];
 our %OPTIONS_VALUES;
 
-sub new { return bless {}; }
+sub new
+{
+	my $type = shift;
+	my $self = {};
+	return bless $self, $type;
+}
+
 
 sub process_options 
 {
