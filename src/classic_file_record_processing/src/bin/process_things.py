@@ -15,6 +15,8 @@ class Processor1:
     OR
         cat file1.json | program.py
 
+    You can put your record processing code in the process_record method.
+
     """
     argument_parser = {
         'prog' : os.path.basename(__file__),
