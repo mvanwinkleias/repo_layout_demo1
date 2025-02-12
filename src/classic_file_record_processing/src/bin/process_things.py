@@ -45,11 +45,18 @@ class Processor1:
     def process_file_handles( self ):
         # pprint.pprint(self.args.files)
         if (len(self.args.files) > 0):
-            for file in self.args.files :
-                for line in file:
-                    self.process_record(
-                        self.decode_line(line)
-                    )
+            files = self.args.files
+        else:
+            files = [ sys.stdin ]
+
+        for file in files :
+            for line in file:
+                self.process_record(
+                    self.decode_line(line)
+                )
+            if file is not sys.stdin:
+                file.close()
+            
         
 
     def decode_line( self, line ):
