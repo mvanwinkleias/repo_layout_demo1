@@ -7,6 +7,15 @@ import pprint
 import json
 
 class Processor1:
+    """
+    A simple record processing programming / class.
+
+    It can be run with
+        program.py file1.json [file2.json ... ]
+    OR
+        cat file1.json | program.py
+
+    """
     argument_parser = {
         'prog' : os.path.basename(__file__),
         'description' : 'This processes things.',
@@ -21,6 +30,7 @@ class Processor1:
         arg_parser.add_argument(
             "--dump-self",
             action="store_true",
+            help="pprints self and exits.",
         )
 
         arg_parser.add_argument(
@@ -43,7 +53,6 @@ class Processor1:
         self.process_file_handles()
 
     def process_file_handles( self ):
-        # pprint.pprint(self.args.files)
         if (len(self.args.files) > 0):
             files = self.args.files
         else:
@@ -56,12 +65,11 @@ class Processor1:
                 )
             if file is not sys.stdin:
                 file.close()
-            
-        
 
     def decode_line( self, line ):
         return json.loads(line)
-    
+
+    # Put your record processing stuff here.    
     def process_record( self, record ) :
         pprint.pprint(record)
 
