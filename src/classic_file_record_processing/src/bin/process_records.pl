@@ -3,7 +3,6 @@
 use strict;
 use warnings;
 
-
 package ClassicRecordProcessing::Processor1;
 
 use IO::File;
@@ -16,14 +15,62 @@ our $OPTIONS = [
 ];
 our %OPTIONS_VALUES;
 
+
 sub new
 {
 	my $type = shift;
 	my $self = {};
-	return bless $self, $type;
+
+	bless $self, $type;
+
+	$self->initialize_status();
+
+	return $self;
+}
+
+sub sig_handler
+{
+	my ($self, $sig) = @_;
+
+	if ($sig eq 'USR1')
+	{
+		return $self->get_status_report();
+	}
+}
+sub initialize_status
+{
+	my ($self) = @_;
+
+	my $status = $self->{'status'} = {};
+	my $record_counts = $status->{'record_counts'} = {};
+	$record_counts->{'read'} = 0;
+	$record_counts->{'processed'} = 0;
+	$record_counts->{'skipped'} = 0;
+	$record_counts->{'errors'} = 0;
 }
 
 
+sub get_status_report
+{
+	my ($self) = @_;
+
+	my $status_report;
+	$status_report = join("\n",
+		$self->get_status_record_count_report($self->{status}->{record_counts}),
+	);
+
+	return $status_report;
+
+}
+
+sub get_status_record_count_report
+{
+	my ($self, $record_counts) = @_;
+
+	return join("\n\t", "Record Counts:",
+		map { join(":\t", $_, $record_counts->{$_}) } sort keys %$record_counts
+	);
+}
 sub process_options 
 {
 	my ($self) = @_;
@@ -81,6 +128,7 @@ sub process_file
 	my $line;
 	each_record: while ( defined ($line = <$fh>))
 	{
+		$self->{status}->{record_counts}->{read}++;
 		# print "Line: $line\n";
 		my $record;
 		eval
@@ -90,6 +138,7 @@ sub process_file
 		if (! $record )
 		{
 			warn "Unable to json decode: $line\n";
+			$self->{status}->{record_counts}->{errors}++;
 			next each_record;
 		}
 
@@ -100,6 +149,12 @@ sub process_file
 sub process_record
 {
 	my ($self, $record)  = @_;
+
+	# Increment this if the record was correctly processed:
+	$self->{status}->{record_counts}->{processed}++;
+
+	# Or, if the record was skipped, increment this:
+	$self->{status}->{record_counts}->{skipped}++;
 
 	my $output;
 	$output .=  "Name: " . $record->{name} . ".  ";
@@ -115,8 +170,33 @@ sub run
 	$self->process_files();
 }
 
+
+
 package main;
 
+my @SIG_HANDLER_OBJECTS = ();
+
+sub sig_handler
+{
+	my ($sig) = @_;
+
+	# print "Sig: $sig\n";
+
+	my @results;
+
+	foreach my $handler_object ( @SIG_HANDLER_OBJECTS )
+	{
+		 push @results, $handler_object->sig_handler($sig);
+	}
+
+	if ($sig eq 'USR1')
+	{
+		print STDERR join("\n", @results),$/;
+	}
+}
+
 my $program = ClassicRecordProcessing::Processor1->new();
+$SIG{'USR1'} = \&sig_handler;
+push @SIG_HANDLER_OBJECTS, $program;
 
 $program->run();
