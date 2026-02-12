@@ -14,9 +14,9 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.realpath
 
 # pylint: disable=wrong-import-position
 # Put your imports here:
-from ias.hello_jinja2_layout import IASHelloJinja2Layout
+import ias.hello_jinja2_layout.hello_jinja2_layout
 
 # pylint: enable=wrong-import-position
 if __name__ == "__main__":
-    APP = IASHelloJinja2Layout()
+    APP = ias.hello_jinja2_layout.hello_jinja2_layout.IASHelloJinja2Layout()
     APP.hello()

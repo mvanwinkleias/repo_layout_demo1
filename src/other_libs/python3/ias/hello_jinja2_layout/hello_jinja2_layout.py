@@ -2,6 +2,11 @@
 # import os
 # import pprint
 
+# You'll need to put this in setup.py (or pyproject.toml or whatever:
+# 'package_data' : {
+#       'ias.hello_jinja2_layout.hello_jinja2_layout' : ['templates/*.jinja2']
+# }
+
 import jinja2
 class IASHelloJinja2Layout:
     """ Hello, Jinja2 layout! """
