@@ -6,6 +6,12 @@
 # You can put your regular python stuff after these path
 # manipulations.
 
+# This is what you need in setup.py ; I don't know the
+# toml equivalent:
+#    'package_data' : {
+#        '' : ['templates/*.jinja2']
+#    },
+
 import os
 import sys
 
